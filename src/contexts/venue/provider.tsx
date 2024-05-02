@@ -16,7 +16,13 @@ export function VenueProvider(props: VenueProviderProps) {
         loading: venueService.loading
       }}
     >
-      {props.children}
+      {venueService.loading && 
+        <div>Loading...</div>
+      }
+
+      {!venueService.loading && 
+        props.children
+      }
     </VenueContext.Provider>
   )
 }
